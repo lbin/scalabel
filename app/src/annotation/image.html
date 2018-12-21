@@ -170,6 +170,19 @@
                     <div id="custom_categories" class="form-group">
                         <span>Label Category</span>
                     </div>
+                    <div class="form-group" style="width:200px;">
+                        <!-- <span>Add text content</span> -->
+                        <label for="text_content">Add text content*</label>
+                        <input type="text" class="form-control"
+                               style="width:200px" id="project_name"
+                               name="text_content" required
+                               pattern="[A-Za-z0-9_-]*"
+                               oninvalid="setCustomValidity(
+                                 'Only letters, numbers, _ and - are permitted.')"
+                               onchange="try{setCustomValidity('')}catch(e){}">
+                        <a href="#" id="add_btn" class="btn btn-sidebar">Add</a>
+                    </div>
+                    
                     <div id="custom_attributes">
                         {{ range $key, $value := .Task.ProjectOptions.Attributes }}
                         <div class="form-group"
@@ -179,8 +192,9 @@
                         </div>
                         {{ end }}
                     </div>
+                    
                 </div>
-
+                
                 <template id="video_btns">
                     <!-- object out of frame button -->
                     <a href="#" id="end_btn" class="btn btn-sidebar">End
